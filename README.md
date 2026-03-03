@@ -1,11 +1,25 @@
-<div align="center">
+# Sales Coaching Intelligence Platform
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A lightweight web app for analyzing uploaded sales-call audio and generating:
 
-  <h1>Built with AI Studio</h2>
+- A diarized transcript (Speaker A vs Speaker B)
+- A sentiment/engagement graph over call duration
+- An AI-style coaching card with 3 wins and 3 missed opportunities
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Run locally
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+```bash
+python3 -m http.server 4173
+```
 
-</div>
+Open <http://localhost:4173> in your browser.
+
+## Quick start (中文)
+
+1. 在项目目录运行：`python3 -m http.server 4173`
+2. 浏览器打开：`http://localhost:4173`
+3. 点击 **Try Demo Call** 可先体验示例结果；或上传你自己的音频后点击 **Analyze Call**。
+
+## Notes
+
+This implementation is frontend-only and uses heuristic analysis so it runs without backend APIs.
