@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Coaching Intelligence Platform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Sales Coaching Intelligence Platform</h1>
+      <p>Upload a sales call recording to generate transcript insights, engagement trend, and coaching recommendations.</p>
+      <p class="subtle">上传销售通话音频后，自动输出：分角色转写、客户参与度曲线、以及教练建议卡片。</p>
+    </header>
+
+    <main>
+      <section class="upload-panel card">
+        <h2>1) Upload Sales Call Audio</h2>
+        <div class="upload-row">
+          <input type="file" id="audioFile" accept="audio/*" />
+          <button id="analyzeBtn">Analyze Call</button>
+          <button id="demoBtn" class="secondary">Try Demo Call</button>
+        </div>
+        <p id="status" class="status">No file selected.</p>
+      </section>
+
+      <section class="metrics" id="metricsRow">
+        <div class="metric card"><p>Call Duration</p><strong id="metricDuration">--</strong></div>
+        <div class="metric card"><p>Talk Ratio (A:B)</p><strong id="metricTalkRatio">--</strong></div>
+        <div class="metric card"><p>Avg Engagement</p><strong id="metricEngagement">--</strong></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card" id="transcriptCard">
+          <h2>2) Diarized Transcript</h2>
+          <p class="subtle">Speaker A = Salesperson · Speaker B = Customer</p>
+          <div id="transcriptOutput" class="transcript-output empty-state">
+            Upload an audio file and click “Analyze Call”.
+          </div>
+        </article>
+
+        <article class="card" id="sentimentCard">
+          <h2>3) Sentiment Graph</h2>
+          <p class="subtle">Engagement score over call duration</p>
+          <canvas id="sentimentCanvas" width="860" height="320" aria-label="Sentiment Graph"></canvas>
+          <div id="graphLegend" class="legend"></div>
+        </article>
+
+        <article class="card" id="coachingCard">
+          <h2>4) AI Coaching Card</h2>
+          <div class="coaching-columns">
+            <div>
+              <h3>What went well</h3>
+              <ul id="winsList" class="insight-list"></ul>
+            </div>
+            <div>
+              <h3>Missed opportunities</h3>
+              <ul id="missedList" class="insight-list"></ul>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
